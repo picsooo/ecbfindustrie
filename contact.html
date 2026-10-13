@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>ECBF Industrie</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/v1.css">
+</head>
+<body data-page="contact">
+<div id="top"></div>
+<div class="ph"><div class="wrap">
+  <div class="crumb">Accueil / Contact</div>
+  <h1>Contact et devis</h1>
+  <p>Conseil technique, devis, distribution : écrivez-nous, nous vous répondons rapidement.</p>
+</div></div>
+<section class="contact" id="devis">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Nos coordonnées</div>
+      <h2>ECBF Industrie</h2>
+      <div class="coord" id="coord"></div>
+    </div>
+    <form class="f" novalidate>
+      <label>Nom et prénom<input required name="nom"></label>
+      <label>Société<input name="societe"></label>
+      <label>Téléphone<input type="tel" name="tel"></label>
+      <label>Wilaya<select name="wilaya" id="wil"></select></label>
+      <label class="full">Vous êtes<select name="profil"><option>Entreprise du bâtiment</option><option>Menuisier aluminium / bois</option><option>Industriel</option><option>Carrossier / constructeur de véhicules</option><option>Revendeur / quincaillerie</option><option>Particulier</option></select></label>
+      <label class="full">Produit ou besoin<input name="produit" id="prod" placeholder="Ex. COSMO HD-100.400 Multi Talent, 200 cartouches"></label>
+      <label class="full">Message<textarea name="msg"></textarea></label>
+      <button class="btn btn-red full" type="submit" style="justify-content:center">Envoyer la demande</button>
+      <div class="ok-msg">Merci, votre demande a bien été prise en compte (maquette : aucune donnée n'est envoyée).</div>
+    </form>
+  </div>
+</section>
+<iframe class="map" id="map" loading="lazy" title="Carte ECBF Industrie" style="height:440px"></iframe>
+<div id="foot"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/v1.js"></script>
+<script>
+(function(){var C=ECBF.contact,I=ICON;
+document.getElementById('coord').innerHTML='<div>'+I.pin+'<span><small>Adresse</small><p>'+C.adresse+'<br>'+C.ville+'</p></span></div><div>'+I.tel+'<span><small>Téléphone</small><a href="tel:'+C.telHref+'">'+C.tel+'</a></span></div><div>'+I.mail+'<span><small>E-mail</small><a href="mailto:'+C.email+'">'+C.email+'</a></span></div>';
+document.getElementById('map').src=C.map;
+var w=["Adrar","Chlef","Laghouat","Oum El Bouaghi","Batna","Béjaïa","Biskra","Béchar","Blida","Bouira","Tamanrasset","Tébessa","Tlemcen","Tiaret","Tizi Ouzou","Alger","Djelfa","Jijel","Sétif","Saïda","Skikda","Sidi Bel Abbès","Annaba","Guelma","Constantine","Médéa","Mostaganem","M'Sila","Mascara","Ouargla","Oran","El Bayadh","Illizi","Bordj Bou Arreridj","Boumerdès","El Tarf","Tindouf","Tissemsilt","El Oued","Khenchela","Souk Ahras","Tipaza","Mila","Aïn Defla","Naâma","Aïn Témouchent","Ghardaïa","Relizane","Timimoun","Bordj Badji Mokhtar","Ouled Djellal","Béni Abbès","In Salah","In Guezzam","Touggourt","Djanet","El M'Ghair","El Meniaa"];
+document.getElementById('wil').innerHTML=w.map(function(x,i){return '<option'+(x==='Blida'?' selected':'')+'>'+String(i+1).padStart(2,'0')+' · '+x+'</option>'}).join('');
+var q=new URLSearchParams(location.search).get('produit');if(q)document.getElementById('prod').value=q;
+})();
+</script>
+</body>
+</html>

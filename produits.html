@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>ECBF Industrie</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/v1.css">
+</head>
+<body data-page="produits">
+<div id="top"></div>
+
+<div class="ph"><div class="wrap">
+  <div class="crumb">Accueil / Produits</div>
+  <h1>Nos produits</h1>
+  <p>La gamme COSMO® de Weiss-Chemie : colles, mastics, polymères MS, nettoyants et panneaux sandwich pour les professionnels.</p>
+</div></div>
+
+<section style="padding-top:50px">
+  <div class="wrap">
+    <div class="tabs" role="tablist">
+      <button class="on" data-t="bond">Gamme Bond &amp; Seal</button>
+      <button data-t="familles">Colles industrielles</button>
+      <button data-t="panneaux">Panneaux sandwich</button>
+      <button data-t="nettoyage">Nettoyage</button>
+    </div>
+
+    <div class="panel on" id="p-bond">
+      <div class="filters" id="filters">
+        <button class="on" data-f="all">Tous (15)</button>
+        <button data-f="hd">Polymères MS et hybrides</button>
+        <button data-f="pu">Polyuréthane</button>
+        <button data-f="ca">Colles instantanées</button>
+      </div>
+      <div class="pgrid" id="pgrid"></div>
+    </div>
+
+    <div class="panel" id="p-familles">
+      <p class="lead" style="margin-bottom:30px">Plus de 400 variantes de colles de surface, de construction, instantanées et spéciales. Sur demande, les systèmes de colles peuvent être ajustés à votre procédé de fabrication.</p>
+      <div class="fam-list" id="famList"></div>
+    </div>
+
+    <div class="panel" id="p-panneaux">
+      <div class="split">
+        <div>
+          <div class="kicker">COSMO® Panneaux sandwich</div>
+          <h2>Une infinité d'options design</h2>
+          <p class="lead" style="margin-top:16px">Plus de 5 000 variantes de panneaux sandwich. Finitions, matériaux d'âme et traitements se combinent pour la construction de véhicules spéciaux, de caravanes, de caisses de camion, de façades et d'aménagements.</p>
+          <div style="display:flex;gap:12px;margin-top:26px;flex-wrap:wrap"><a class="btn btn-red" href="catalogues.html">Catalogue panneaux</a><a class="btn btn-line" style="color:#13305E" href="contact.html#devis">Demander un devis</a></div>
+        </div>
+        <div><img src="assets/img/p/caravane.webp" alt="Panneaux sandwich pour caravane"><div class="swatches"><img src="assets/img/p/panneau-1.webp" alt=""><img src="assets/img/p/panneau-2.webp" alt=""><img src="assets/img/p/panneau-3.webp" alt=""><img src="assets/img/p/panneau-4.webp" alt=""><img src="assets/img/p/camion.webp" alt=""><img src="assets/img/p/panneau-1.webp" alt="" style="transform:scaleX(-1)"></div></div>
+      </div>
+    </div>
+
+    <div class="panel" id="p-nettoyage">
+      <div class="split">
+        <div>
+          <div class="kicker">COSMO® CL · PUDOL</div>
+          <h2>Nettoyer, activer, entretenir</h2>
+          <p class="lead" style="margin-top:16px">Les nettoyants et activateurs COSMO® CL préparent les surfaces avant collage et finissent les joints après. La marque PUDOL complète l'offre avec des produits de nettoyage et d'entretien pour les activités professionnelles.</p>
+          <a class="btn btn-red" style="margin-top:26px" href="contact.html#devis">Demander un devis</a>
+        </div>
+        <div style="display:flex;gap:20px;align-items:flex-end;justify-content:center"><img src="assets/img/p/fam-cl-bidon.webp" alt="" style="height:240px;width:auto"><img src="assets/img/p/fam-cl.webp" alt="" style="height:200px;width:auto"><img src="assets/img/p/fam-pu-bidon.webp" alt="" style="height:220px;width:auto"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/v1.js"></script>
+<script>
+(function(){var D=ECBF;
+var g=document.getElementById('pgrid');
+function draw(f){g.innerHTML=D.range.filter(function(p){return f==='all'||p.famille===f}).map(function(p){return '<button class="pcard" data-id="'+p.id+'"><span class="ty">'+p.type+'</span><div class="pic"><img src="assets/img/p/'+p.img+'.webp" alt="'+p.nom+'" loading="lazy"></div><div class="tx"><span class="ref">COSMO® '+p.ref+'</span><h3>'+p.nom+'</h3><p>'+p.accroche+'</p></div></button>'}).join('');
+ g.querySelectorAll('.pcard').forEach(function(b){b.onclick=function(){openProduct(b.dataset.id)}})}
+draw('all');
+document.querySelectorAll('#filters button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#filters button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');draw(b.dataset.f)}});
+document.getElementById('famList').innerHTML=D.familles.map(function(f){return '<div class="fam-row"><div class="pic"><img src="assets/img/p/'+f.img+'.webp" alt="" loading="lazy"></div><div><span class="code">'+f.code+'</span><h3>'+f.nom+'</h3><p>'+f.desc+'</p><div class="refs">'+f.refs+'</div></div></div>'}).join('');
+function tab(t){document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x.dataset.t===t)});document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id==='p-'+t)})}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){tab(b.dataset.t)}});
+function fromHash(){var h=location.hash.slice(1);if(['familles','panneaux','nettoyage','bond'].indexOf(h)>-1)tab(h)}fromHash();window.addEventListener('hashchange',fromHash);
+var q=new URLSearchParams(location.search).get('p');if(q)openProduct(q);
+})();
+</script>
+</body>
+</html>

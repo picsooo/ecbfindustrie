@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>ECBF Industrie</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/v1.css">
+</head>
+<body data-page="hd">
+<div id="top"></div>
+
+<div class="ph"><div class="wrap">
+  <div class="crumb">Accueil / Produits / HD 100.400</div>
+  <h1>COSMO® HD-100.400 Multi Talent</h1>
+  <p>Colle-mastic à base de polymère MS. Adhère, étanche et répare sur presque tous les matériaux, à l'intérieur comme à l'extérieur.</p>
+</div></div>
+
+<section class="fiche">
+  <div class="wrap">
+    <div class="fiche-pic"><img src="assets/img/p/multi-talent.webp" alt="COSMO HD-100.400 Multi Talent"></div>
+    <div>
+      <div class="kicker">Caractéristiques techniques</div>
+      <h2>Un produit pour tout l'atelier</h2>
+      <p class="lead" style="margin:16px 0 8px">Idéal pour coller miroirs, verre, métaux (fer, aluminium, acier), bois, béton, pierre naturelle, céramique, polycarbonate, PVC, PMMA et plâtre. Sauf PP, PE et PTFE.</p>
+      <table class="spec" id="specs"></table>
+      <div class="chips"><span>Sans solvant</span><span>Sans isocyanate</span><span>Sans silicone</span><span>Recouvrable en peinture</span><span>Réparation sous l'eau</span></div>
+      <p style="font-size:15px;color:#5B6676">Conditionnement : cartouche 310 ml et poche 600 ml · teintes blanc et gris.</p>
+
+      <div class="kicker" style="margin-top:46px">Normes et certificats</div>
+      <div class="normes" id="normes"></div>
+
+      <div class="kicker" style="margin-top:46px">Calculateur</div>
+      <h3 style="font-size:30px;margin-bottom:16px">Combien de cartouches pour votre joint ?</h3>
+      <div class="calc">
+        <div>
+          <label>Longueur de joint <span class="v"><span id="vL">25</span> m</span><input type="range" id="L" min="1" max="200" value="25"></label>
+          <label>Largeur du joint <span class="v"><span id="vW">10</span> mm</span><input type="range" id="W" min="3" max="30" value="10"></label>
+          <label>Profondeur du joint <span class="v"><span id="vP">8</span> mm</span><input type="range" id="P" min="3" max="20" value="8"></label>
+        </div>
+        <div class="res"><b id="nb">8</b><span style="font-weight:600">cartouches de 310 ml</span><br><small id="vol">2,0 litres de mastic · 10 % de perte inclus</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F4F5F2" id="apps">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="kicker">Applications</div><h2>Le HD 100.400 dans votre métier</h2></div>
+      <p class="lead">Cliquez sur un métier pour agrandir la planche d'applications.</p>
+    </div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section class="event"><div class="wrap">
+  <div class="date" style="font-size:56px">310<small>ML · 600 ML</small></div>
+  <div><h3>Revendeurs et entreprises : passez commande</h3><p>Tarifs professionnels, quantités et livraison dans votre wilaya : nous vous répondons rapidement.</p></div>
+  <a class="btn" href="contact.html?produit=HD-100.400%20Multi%20Talent#devis">Demander un devis</a>
+</div></section>
+
+<div class="lb" id="lb"><button class="x" aria-label="Fermer">×</button><img alt=""></div>
+<div id="foot"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/v1.js"></script>
+<script>
+(function(){var D=ECBF,p=byId('multi-talent');
+document.getElementById('specs').innerHTML='<tr><td>Référence</td><td>COSMO® HD-100.400</td></tr><tr><td>Technologie</td><td>Polymère MS</td></tr><tr><td>Viscosité (+25 °C)</td><td>600 000 mPa·s</td></tr>'+Object.keys(p.specs).map(function(k){return '<tr><td>'+k+'</td><td>'+p.specs[k]+'</td></tr>'}).join('');
+document.getElementById('normes').innerHTML=D.normes.map(function(n){return '<div><b>'+n.code+'</b><span>'+n.txt+'</span></div>'}).join('');
+var lb=document.getElementById('lb');lb.onclick=function(e){if(e.target!==lb.querySelector('img'))lb.classList.remove('on')};
+var list=[{id:'materiaux',nom:'Matériaux compatibles'}].concat(D.metiers);
+document.getElementById('gal').innerHTML=list.map(function(m){return '<button id="'+m.id+'" data-src="assets/img/apps/'+m.id+'.webp"><img src="assets/img/apps/'+m.id+'.webp" alt="'+m.nom+'" loading="lazy"><span>'+m.nom+'</span></button>'}).join('');
+document.querySelectorAll('#gal button').forEach(function(b){b.onclick=function(){lb.querySelector('img').src=b.dataset.src;lb.classList.add('on')}});
+function calc(){var L=+document.getElementById('L').value,W=+document.getElementById('W').value,P=+document.getElementById('P').value;
+ document.getElementById('vL').textContent=L;document.getElementById('vW').textContent=W;document.getElementById('vP').textContent=P;
+ var ml=L*W*P*1.1;document.getElementById('nb').textContent=Math.max(1,Math.ceil(ml/310));
+ document.getElementById('vol').textContent=(ml/1000).toFixed(1).replace('.',',')+' litres de mastic · 10 % de perte inclus'}
+['L','W','P'].forEach(function(i){document.getElementById(i).oninput=calc});calc();
+if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){t.scrollIntoView({block:'center'});t.click()},400)}
+})();
+</script>
+</body>
+</html>

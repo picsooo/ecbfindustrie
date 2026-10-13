@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>ECBF Industrie</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/v1.css">
+</head>
+<body data-page="catalogues">
+<div id="top"></div>
+<div class="ph"><div class="wrap">
+  <div class="crumb">Accueil / Catalogues</div>
+  <h1>Catalogues et documentation</h1>
+  <p>Toute la documentation technique COSMO® en PDF : catalogues, brochures métiers, applications et certificats.</p>
+</div></div>
+<section>
+  <div class="wrap">
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+<section style="background:#F4F5F2;padding:70px 0">
+  <div class="wrap split">
+    <div><div class="kicker">Besoin d'une fiche technique ?</div><h2>Fiches techniques et de sécurité sur demande</h2></div>
+    <div><p class="lead">Indiquez la référence COSMO® et votre application : nous vous envoyons la fiche technique, la fiche de données de sécurité et nos recommandations de mise en œuvre.</p><a class="btn btn-red" style="margin-top:22px" href="contact.html#devis">Faire une demande</a></div>
+  </div>
+</section>
+<div id="foot"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/v1.js"></script>
+<script>
+document.getElementById('catGrid').innerHTML=ECBF.catalogues.map(function(c){return '<a class="cat rv" href="'+c.url+'" target="_blank" rel="noopener"><div class="cov"><img src="assets/img/cat/'+c.id+'.webp" alt="" loading="lazy"></div><h4>'+c.titre+'</h4><div class="meta"><span>PDF · '+c.pages+' pages · '+c.langue+'</span><b>Télécharger</b></div></a>'}).join('');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});document.querySelectorAll('.rv:not(.in)').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
